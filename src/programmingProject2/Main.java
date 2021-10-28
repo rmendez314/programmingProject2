@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
         // TODO Auto-generated method stub
-        int i = 0;
+
         storeList = new ArrayList<>();
         queryList = new ArrayList<>();
         setStoreList(storeList);
@@ -19,12 +19,13 @@ public class Main {
         loadQueries("Queries.csv");
 
         //printStoreList(storeList);
-        printQueryList(queryList);
-
+        //printQueryList(queryList);
     }
+
     public static void setStoreList(ArrayList<Store> stores){
         storeList=stores;
     }
+
     public ArrayList <Store> getStoreList(){
         return storeList;
     }
@@ -32,6 +33,7 @@ public class Main {
     public static void setQueryList(ArrayList<Query> queries){
         queryList=queries;
     }
+
     public ArrayList<Query> getQueryList (){
         return queryList;
     }
@@ -87,28 +89,26 @@ public class Main {
     }
 
     public static void printStoreList(ArrayList<Store> list){
-        for(int i=0; i < list.size(); i++){
-            Store s = list.get(i);
+        for (Store s : list) {
             System.out.println(
-                      s.getStoreID() + ", "
-                    + s.getAddress() + ", "
-                    + s.getAddress() + ", "
-                    + s.getCity() + ", "
-                    + s.getState() + ", "
-                    + s.getZipCode() + ", "
-                    + s.getLatitude() + ", "
-                    + s.getLongitude()
+                    s.getStoreID() + ", "
+                            + s.getAddress() + ", "
+                            + s.getAddress() + ", "
+                            + s.getCity() + ", "
+                            + s.getState() + ", "
+                            + s.getZipCode() + ", "
+                            + s.getLatitude() + ", "
+                            + s.getLongitude()
             );
         }
     }
 
     public static void printQueryList(ArrayList<Query> list){
-        for(int i=0; i < list.size(); i++){
-            Query q = list.get(i);
+        for (Query q : list) {
             System.out.println(
-                      q.getqLatitude() + ", "
-                    + q.getqLongitude() + ", "
-                    + q.getNumberOfStores() + ", "
+                    q.getqLatitude() + ", "
+                            + q.getqLongitude() + ", "
+                            + q.getNumberOfStores() + ", "
             );
         }
     }
