@@ -11,14 +11,66 @@ public class Store {
     public double distance;
 
     public Store(int theID, String theAddress, String theCity, String theState, int theZipCode, double theLat, double theLong) {
-        storeID = theID;
-        address = theAddress;
-        city = theCity;
-        state = theState;
-        zipCode = theZipCode;
-        latitude = theLat;
-        longitude = theLong;
+        setStoreID(theID);
+        setAddress(theAddress);
+        setCity(theCity);
+        setState(theState);
+        setZipCode(theZipCode);
+        setLatitude(theLat);
+        setLongitude(theLong);
         distance = -1;
+    }
+
+    public void setStoreID(int id){
+        this.storeID = id;
+    }
+
+    public int getStoreID(){
+        return this.storeID;
+    }
+
+    public void setAddress(String address){
+        this.address = address;
+    }
+
+    public String getAddress(){
+        return this.address;
+    }
+
+    public void setCity(String city){
+        this.city = city;
+    }
+
+    public String getCity(){
+        return this.city;
+    }
+
+    public void setState(String state){
+        this.state = state;
+    }
+
+    public String getState(){
+        return this.state;
+    }
+
+    public void setZipCode (int zipCode){
+        this.zipCode = zipCode;
+    }
+
+    public int getZipCode(){
+        return this.zipCode;
+    }
+
+    public void setLatitude(double latitude){
+        this.latitude = latitude;
+    }
+
+    public double getLatitude(){
+        return this.latitude;
+    }
+
+    public void setLongitude(double longitude){
+        this.longitude = longitude;
     }
 
     public void computeDistance(double otherLat, double otherLong) {
@@ -33,4 +85,9 @@ public class Store {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         distance = radiusOfEarthInMiles * c;
     }
+    /**
+    public String toString(){
+
+    }
+     */
 }

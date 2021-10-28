@@ -1,34 +1,68 @@
 package programmingProject2;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.lang.reflect.Array;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
-    public static Array[] stores = new Array[];
-    public static Array[] queries = new Array[];
+    public static ArrayList<Store> storeList;
+    public static ArrayList<Query> queryList;
 
     public static void main(String[] args) throws FileNotFoundException {
         // TODO Auto-generated method stub
         int i = 0;
-        Scanner scnr = new Scanner(new File("WhataburgerData.csv"));
-        Scanner scnr2 = new Scanner(new File("Queries.csv"));
+        storeList = new ArrayList<>();
+        queryList = new ArrayList<>();
 
-        scnr.useDelimiter(",");
-        scnr.useDelimiter(",");
+        loadStores("WhataburgerData.csv");
+        loadQueries("Queries.csv");
+    }
 
-        while (scnr.hasNext()) { //returns a boolean value
-            //Store store = new Store()
-            System.out.print(scnr.next());  //find and returns the next complete token from this scanner
-            i++;
+    public static void loadStores(String fileName){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            String line1 = "";
+            while( (line1 = br.readLine()) != null ) { //loops through a .csv file until it reaches a null line
+                String [] array = line1.split(",");
+                Store s = new Store (Integer.getInteger(
+                        array[0]),
+                        array[1],
+                        array[2],
+                        array[3],
+                        Integer.getInteger(array[4]),
+                        Double.parseDouble(array[5]),
+                        Double.parseDouble(array[6])
+                ); //creates a new zone object
+                addStore(s);
+            }
+        } catch (IOException e) { // if file is not found
+            e.printStackTrace();
         }
-        scnr.close();  //closes the scanner
+    }
 
-        while (scnr2.hasNext()) { //returns a boolean value
-            System.out.print(scnr2.next());  //find and returns the next complete token from this scanner
+    public static void addStore(Store store){
+        storeList.add(store);
+    }
+
+    public static void loadQueries(String fileName){
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            String line1 = "";
+            while( (line1 = br.readLine()) != null ) { //loops through a .csv file until it reaches a null line
+                String [] array = line1.split(",");
+                Query q = new Query (
+                        Double.parseDouble(array[0]),
+                        Double.parseDouble(array[1]),
+                        Integer.getInteger(array[2])
+                ); //creates a new zone object
+                addQuery(q);
+            }
+        } catch (IOException e) { // if file is not found
+            e.printStackTrace();
         }
-        scnr2.close();  //closes the scanner
-        scnr.close();  //closes the scanner
+    }
+
+    public static void addQuery(Query query){
+        queryList.add(query);
     }
 }
 
