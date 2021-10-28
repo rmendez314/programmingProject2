@@ -73,6 +73,10 @@ public class Store {
         this.longitude = longitude;
     }
 
+    public double getLongitude(){
+        return this.longitude;
+    }
+
     public void computeDistance(double otherLat, double otherLong) {
         double radiusOfEarthInMiles = 3958.8;
 

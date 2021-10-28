@@ -50,6 +50,5 @@ public class Query {
     public void addStore(Store store){
         storeList.add(store);
     }
-
 }
 
