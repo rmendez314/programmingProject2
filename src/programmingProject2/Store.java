@@ -18,7 +18,7 @@ public class Store {
         setZipCode(theZipCode);
         setLatitude(theLat);
         setLongitude(theLong);
-        distance = -1;
+        this.distance = -1;
     }
 
     public void setStoreID(int id){
@@ -87,7 +87,7 @@ public class Store {
 
         double a = Math.pow(Math.sin((lat2 - lat1) / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin((long2 - long1) / 2), 2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        distance = radiusOfEarthInMiles * c;
+        this.distance = radiusOfEarthInMiles * c;
     }
     /**
     public String toString(){

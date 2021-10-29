@@ -7,9 +7,7 @@ public class Main {
     public static ArrayList<Store> storeList;
     public static ArrayList<Query> queryList;
 
-    public static void main(String[] args) throws FileNotFoundException {
-        // TODO Auto-generated method stub
-
+    public static void main(String[] args) {
         storeList = new ArrayList<>();
         queryList = new ArrayList<>();
         setStoreList(storeList);
@@ -17,6 +15,12 @@ public class Main {
 
         loadStores("WhataburgerData.csv");
         loadQueries("Queries.csv");
+
+        for (int i = 0; i < queryList.size(); ++i) {
+            Query q = queryList.get(i);
+            q.sort(storeList, 0, storeList.size() - 1); //FIXME might not be -1
+            q.printStoreList();
+        }
 
         //printStoreList(storeList);
         //printQueryList(queryList);
@@ -26,7 +30,7 @@ public class Main {
         storeList=stores;
     }
 
-    public ArrayList <Store> getStoreList(){
+    public static ArrayList <Store> getStoreList(){
         return storeList;
     }
 
