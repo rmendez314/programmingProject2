@@ -1,3 +1,4 @@
+//Algorithms Project 2 Written by Ramiro Mendez & Matthew Farnsworth
 package programmingProject2;
 import java.io.*;
 import java.util.ArrayList;
@@ -18,10 +19,9 @@ public class Main {
 
         for (int i = 0; i < queryList.size(); ++i) {
             Query q = queryList.get(i);
-            q.sort(storeList, 0, storeList.size() - 1); //FIXME might not be -1
+            q.quickSort(storeList, 0, storeList.size() - 1); //FIXME might not be -1
             q.printStoreList();
         }
-
         //printStoreList(storeList);
         //printQueryList(queryList);
     }

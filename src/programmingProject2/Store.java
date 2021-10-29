@@ -1,3 +1,4 @@
+//Algorithms Project 2 Written by Ramiro Mendez & Matthew Farnsworth
 package programmingProject2;
 
 public class Store {
@@ -89,9 +90,4 @@ public class Store {
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         this.distance = radiusOfEarthInMiles * c;
     }
-    /**
-    public String toString(){
-
-    }
-     */
 }
